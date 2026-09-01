@@ -1,0 +1,223 @@
+
+[
+  {
+    "Text": "Hvilken datatype bruker vi for å lagre et desimaltall som krever høy presisjon (for eksempel penger)?",
+    "Alternatives": [
+      "float",
+      "double",
+      "decimal",
+      "int"
+    ],
+    "CorrectAnswer": 3,
+    "Category": "Datatyper"
+  },
+  {
+    "Text": "Hvilken datatype representerer et enkelt tegn i C#?",
+    "Alternatives": [
+      "string",
+      "char",
+      "int",
+      "bool"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Datatyper"
+  },
+  {
+    "Text": "Hvilket symbol bruker vi for å arve fra en klasse i C#?",
+    "Alternatives": [
+      "extends",
+      ":",
+      "implements",
+      "inherits"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Klasser"
+  },
+  {
+    "Text": "Hva kalles en metode med samme navn som klassen, uten returtype?",
+    "Alternatives": [
+      "Property",
+      "Konstruktør",
+      "Interface",
+      "Enum"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Klasser"
+  },
+  {
+    "Text": "Hvilken samlingstype lagrer nøkkel-verdi-par?",
+    "Alternatives": [
+      "List<T>",
+      "Dictionary<TKey, TValue>",
+      "Array",
+      "Stack<T>"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Samlinger"
+  },
+  {
+    "Text": "Hvilken metode legger til et element bakerst i en List<T>?",
+    "Alternatives": [
+      "Insert()",
+      "Push()",
+      "Add()",
+      "Append()"
+    ],
+    "CorrectAnswer": 3,
+    "Category": "Samlinger"
+  },
+  {
+    "Text": "Hvilken LINQ-metode returnerer kun det første elementet som matcher et vilkår?",
+    "Alternatives": [
+      "Where",
+      "First",
+      "Select",
+      "All"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "LINQ"
+  },
+  {
+    "Text": "Hvilken LINQ-metode transformerer hvert element i en samling til noe nytt?",
+    "Alternatives": [
+      "Where",
+      "OrderBy",
+      "Select",
+      "Count"
+    ],
+    "CorrectAnswer": 3,
+    "Category": "LINQ"
+  },
+  {
+    "Text": "Hva er hovedfordelen med å bruke generiske typer (generics)?",
+    "Alternatives": [
+      "Raskere kompilering",
+      "Typesikkerhet uten å miste gjenbrukbarhet",
+      "Mindre kode å skrive",
+      "Automatisk minnehåndtering"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Generics"
+  },
+  {
+    "Text": "Hvilken løkke kjører alltid minst én gang?",
+    "Alternatives": [
+      "for",
+      "while",
+      "do-while",
+      "foreach"
+    ],
+    "CorrectAnswer": 3,
+    "Category": "Kontrollstrukturer"
+  },
+  {
+    "Text": "Hvilket nøkkelord bruker vi for å hoppe ut av en løkke?",
+    "Alternatives": [
+      "continue",
+      "break",
+      "return",
+      "exit"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Kontrollstrukturer"
+  },
+  {
+    "Text": "Hva kalles det når en klasse har flere metoder med samme navn, men ulike parametere?",
+    "Alternatives": [
+      "Overriding",
+      "Overloading",
+      "Inheritance",
+      "Encapsulation"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Metoder"
+  },
+  {
+    "Text": "Hvilket nøkkelord brukes for å sende en verdi ut av en metode?",
+    "Alternatives": [
+      "out",
+      "return",
+      "ref",
+      "void"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Metoder"
+  },
+  {
+    "Text": "Hvilket nøkkelord lar en avledet klasse overstyre en metode fra basisklassen?",
+    "Alternatives": [
+      "virtual",
+      "override",
+      "sealed",
+      "static"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Arv"
+  },
+  {
+    "Text": "Hva er en viktig forskjell mellom et interface og en abstrakt klasse?",
+    "Alternatives": [
+      "Interfaces kan ha felt (fields)",
+      "En klasse kan implementere flere interfaces, men bare arve fra én klasse",
+      "Abstrakte klasser kan ikke ha metoder",
+      "Interfaces kan instansieres direkte"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Interfaces"
+  },
+  {
+    "Text": "Hvilket nøkkelord bruker vi for å fange en exception?",
+    "Alternatives": [
+      "throw",
+      "try",
+      "catch",
+      "finally"
+    ],
+    "CorrectAnswer": 3,
+    "Category": "Exceptions"
+  },
+  {
+    "Text": "Hvilket nøkkelord bruker vi for å vente på en asynkron operasjon?",
+    "Alternatives": [
+      "async",
+      "await",
+      "wait",
+      "yield"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Async"
+  },
+  {
+    "Text": "Hvilken metode sjekker om en string inneholder en gitt delstreng?",
+    "Alternatives": [
+      "Equals()",
+      "Contains()",
+      "IndexOf()",
+      "Length()"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Strings"
+  },
+  {
+    "Text": "Hva er en enum best egnet til å representere?",
+    "Alternatives": [
+      "En dynamisk liste med verdier",
+      "Et fast sett med navngitte konstanter",
+      "En tekststreng",
+      "En matematisk funksjon"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Enums"
+  },
+  {
+    "Text": "Hva er hovedformålet med properties (get/set) i C#?",
+    "Alternatives": [
+      "Å lage nye klasser",
+      "Å kontrollere tilgang til felt på en kontrollert måte",
+      "Å definere løkker",
+      "Å håndtere exceptions"
+    ],
+    "CorrectAnswer": 2,
+    "Category": "Properties"
+  }
+]

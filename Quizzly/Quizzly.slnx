@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Quizzly.App/Quizzly.App.csproj" />
+  <Project Path="Quizzly.Core/Quizzly.Core.csproj" />
+</Solution>
