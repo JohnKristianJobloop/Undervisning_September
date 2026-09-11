@@ -1,4 +1,5 @@
 using System.Formats.Asn1;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Quizzly.Core.Models;

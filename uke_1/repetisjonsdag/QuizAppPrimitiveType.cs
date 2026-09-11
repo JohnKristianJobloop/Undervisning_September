@@ -145,3 +145,5 @@ else
 // Løsningen: en klasse som beskriver ETT spørsmål, og en List<T> som
 // holder alle sammen. Se QuizAppClassesCollectionsAndLinq.cs.
 // ---------------------------------------------------------------
+
+
