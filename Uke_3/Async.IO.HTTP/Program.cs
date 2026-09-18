@@ -10,6 +10,14 @@ Log.Line("Kaller joke API");
 
 Log.Line("Venter på OS nettverkskall");
 // await her: tråden er fri mens pakkene er på reise.
+
+
+// GET /joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=json&amount=10&type=twopart HTTP/1.1
+// Host: https://v2.jokeapi.dev
+// User-Agent: curl/8.6.0
+// Accept: application/json
+
+
 var response = await client.GetAsync("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&format=json&amount=10&type=twopart");
 Log.Line($"Fikk en response: {response.StatusCode}");
 Log.Line("Serialiserer data til et Response objekt.");

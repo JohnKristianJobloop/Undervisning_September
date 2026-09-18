@@ -18,7 +18,7 @@ foreach (var item in queue)
 
 // 1) Hent spørsmålene fra JSON-filen som kopieres til output-mappen ved bygg.
 // Deserialisering kan gi null (tom eller ugyldig fil), så vi stopper med en gang.
-var questions = QuestionJsonStorer.LoadQuestionsFromFile("Data/questions.json") ?? throw new NullReferenceException("Missing questions");
+var questions = await QuestionJsonStorer.LoadQuestionsFromFile("Data/questions.json") ?? throw new NullReferenceException("Missing questions");
 // 2) QuizSession (Core) eier reglene og tilstanden: køen, rekkefølgen og hva som er riktig.
 // Den kjenner ikke til konsollen i det hele tatt.
 var session = new QuizSession("C# quiz", questions);

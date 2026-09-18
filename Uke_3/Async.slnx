@@ -1,6 +1,8 @@
 <Solution>
   <Project Path="Async.Common/Async.Common.csproj" />
   <Project Path="Async.IO.Blocking/Async.IO.Blocking.csproj" />
+  <Project Path="Async.IO.Concurrency_Parallelism/Async.IO.Concurrency_Parallelism.csproj" />
+  <Project Path="Async.IO.HTTP.Server/Async.IO.HTTP.Server.csproj" />
   <Project Path="Async.IO.HTTP/Async.IO.HTTP.csproj" />
   <Project Path="Async.IO.Tasks/Async.IO.Tasks.csproj" />
 </Solution>
