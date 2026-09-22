@@ -1,5 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
 using Quizzly.API.Data;
+using Quizzly.API.EndpointGroups;
+using Quizzly.API.Extensions;
 
 // Minimal API: hele oppstarten av webserveren skjer her i Program.cs.
 // builder samler opp konfigurasjon og tjenester FØR appen bygges.
@@ -12,7 +13,8 @@ builder.Services.AddOpenApi();
 // Dependency injection: vi sier HVA vi trenger (IQuestionStore) og HVEM som leverer det
 // (JsonQuestionStore). Endepunktene ber bare om interfacet, så lagringen kan byttes ut senere.
 // Singleton = én instans for hele appen, den deles av alle forespørsler.
-builder.Services.AddSingleton<IQuestionStore, JsonQuestionStore>();
+builder.Services.AddReviewQueue(builder.Configuration);
+builder.Services.AddSwaggerGen();
 
 // Etter Build() er tjenestelisten låst, og vi setter opp selve HTTP-pipelinen.
 var app = builder.Build();
@@ -22,36 +24,14 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 // Middleware: sender http-forespørsler videre til https.
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-// Eksempel-endepunktet som følger med malen. MapGet kobler en URL til koden som svarer.
-// Det du returnerer blir automatisk gjort om til JSON.
-app.MapGet("/weatherforecast", async () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+app.MapReviewQueueEndpoints();
 
 // Run starter serveren og blokkerer helt til appen avsluttes.
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

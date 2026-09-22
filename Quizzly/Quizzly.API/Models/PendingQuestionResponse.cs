@@ -6,7 +6,7 @@ namespace Quizzly.API.Models;
 // Det er hele poenget med egne responsmodeller - vi velger selv hva som sendes over nett.
 public sealed record PendingQuestionResponse(
     string Text,
-    IReadOnlyList<string> Alternatives,
+    List<string> Alternatives,
     string Category
 )
 {
