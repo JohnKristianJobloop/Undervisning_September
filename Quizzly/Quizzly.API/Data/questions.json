@@ -1,0 +1,90 @@
+[
+  {
+    "text": "Hvilken datatype bruker vi for å lagre et heltall?",
+    "alternatives": [
+      "int",
+      "string",
+      "bool",
+      "char"
+    ],
+    "correctAnswer": 1,
+    "category": "Datatyper"
+  },
+  {
+    "text": "Hva er standardverdien til en bool?",
+    "alternatives": [
+      "true",
+      "false",
+      "null",
+      "0"
+    ],
+    "correctAnswer": 2,
+    "category": "Datatyper"
+  },
+  {
+    "text": "Hvilket nøkkelord lager en ny instans av en klasse?",
+    "alternatives": [
+      "class",
+      "new",
+      "void",
+      "return"
+    ],
+    "correctAnswer": 2,
+    "category": "Klasser"
+  },
+  {
+    "text": "Hva kaller vi en metode som kjører når objektet opprettes?",
+    "alternatives": [
+      "Destruktør",
+      "Property",
+      "Konstruktør",
+      "Interface"
+    ],
+    "correctAnswer": 3,
+    "category": "Klasser"
+  },
+  {
+    "text": "Hvilken samling kan vokse og krympe under kjøring?",
+    "alternatives": [
+      "string[]",
+      "List<T>",
+      "int",
+      "char"
+    ],
+    "correctAnswer": 2,
+    "category": "Samlinger"
+  },
+  {
+    "text": "Hvilken LINQ-metode filtrerer ut elementer som matcher et vilkår?",
+    "alternatives": [
+      "Select",
+      "Where",
+      "OrderBy",
+      "Count"
+    ],
+    "correctAnswer": 2,
+    "category": "LINQ"
+  },
+  {
+    "text": "Hva kaller vi T i List<T>?",
+    "alternatives": [
+      "En variabel",
+      "En typeparameter",
+      "En metode",
+      "Et grensesnitt"
+    ],
+    "correctAnswer": 2,
+    "category": "Generics"
+  },
+  {
+    "text": "Hva beskriver et interface?",
+    "alternatives": [
+      "Hvordan noe gjøres",
+      "Hva som kan gjøres",
+      "Hvor data lagres",
+      "Når koden kjører"
+    ],
+    "correctAnswer": 2,
+    "category": "Interface"
+  }
+]
