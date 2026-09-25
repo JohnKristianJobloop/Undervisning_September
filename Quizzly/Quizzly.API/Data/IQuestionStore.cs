@@ -8,4 +8,6 @@ public interface IQuestionStore
 {
     // Async fordi lesing fra disk (eller nett) er I/O: tråden slipper å stå og vente.
     Task<IReadOnlyList<Question>> LoadAllAsync();
+    // Returnerer false hvis spørsmålet finnes fra før, true hvis det ble lagt til.
+    Task<bool> TryAddAsync(Question question);
 }

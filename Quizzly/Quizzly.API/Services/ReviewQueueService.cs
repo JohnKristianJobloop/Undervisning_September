@@ -58,6 +58,22 @@ public sealed class ReviewQueueService(
 
     }
 
+    // Lagrer spørsmålet først. Bare hvis det gikk bra, legger vi det også i køen,
+    // slik at køen og lagringen er enige.
+    public async Task<bool> TryAddQuestionAsync(Question question)
+    {
+        if (!await store.TryAddAsync(question))
+        {
+            return false;
+        }
+
+        lock (_gate)
+        {
+            queue.Enqueue(question, NewPriority);
+        }
+        return true;
+    }
+
     // Hele svarrunden i én metode: valider, ta ut av køen, sjekk fasit,
     // og legg spørsmålet tilbake hvis det ble feil.
     public AnswerResult SubmitAnswer(int answer)

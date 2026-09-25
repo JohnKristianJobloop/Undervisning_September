@@ -54,6 +54,34 @@ public sealed class JsonQuestionStore : IQuestionStore
         }
     }
 
+    public async Task<bool> TryAddAsync(Question question)
+    {
+        ArgumentNullException.ThrowIfNull(question);
+
+        // Låsen sørger for at bare én forespørsel leser og skriver filen om gangen.
+        await _gate.WaitAsync();
+
+        try
+        {
+            // Les hele filen, sjekk for duplikat, legg til og skriv alt tilbake.
+            var questions = await ReadRecordsAsync();
+            if(questions.Any(q => Matches(q, question)))
+            {
+                return false;
+            }
+            questions.Add(QuestionRecord.From(question));
+            await WriteRecordsAsync(questions);
+            _logger.LogInformation($"Jsondata oppdatert. Datasett er nå {questions.Count} spørsmål.");
+
+            return true;
+        }
+        finally
+        {
+            // finally: låsen slippes alltid, også hvis noe kaster en exception.
+            _gate.Release();
+        }
+    }
+
     // Privat hjelpemetode: den eneste som faktisk rører filen.
     private async Task<List<QuestionRecord>> ReadRecordsAsync()
     {
@@ -68,5 +96,13 @@ public sealed class JsonQuestionStore : IQuestionStore
         // ?? [] fordi Deserialize kan returnere null (f.eks. hvis filen inneholder "null").
         return await JsonSerializer.DeserializeAsync<List<QuestionRecord>>(stream, _serializerOptions) ?? [];
     }
+    // File.Create overskriver filen, så vi skriver alltid hele listen på nytt.
+    private async Task WriteRecordsAsync(List<QuestionRecord> record)
+    {
+        await using FileStream stream = File.Create(_filePath);
+        await JsonSerializer.SerializeAsync(stream, record, _serializerOptions);
+    }
     
+    // To spørsmål regnes som like hvis teksten er lik, uavhengig av store/små bokstaver.
+    private static bool Matches(QuestionRecord record, Question question) => string.Equals(record.Text, question.Text, StringComparison.OrdinalIgnoreCase);
 }

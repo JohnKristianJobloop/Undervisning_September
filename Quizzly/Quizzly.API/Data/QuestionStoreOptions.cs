@@ -8,4 +8,15 @@ public sealed class QuestionStoreOptions
     public const string SectionName = "QuestionStore";
     // Standardverdi: brukes når ingenting er satt i konfigurasjonen. Stien er relativ til prosjektmappen.
     public string FilePath{get;set;} = "Data/questions.json";
+
+    // Hvilken lagring appen skal bruke. Settes med "Provider" i appsettings.json.
+    public QuestionStoreProvider Provider{get;set;} = QuestionStoreProvider.Json;
+}
+
+
+// De lagringstypene vi støtter.
+public enum QuestionStoreProvider
+{
+    Json,
+    Sqlite
 }

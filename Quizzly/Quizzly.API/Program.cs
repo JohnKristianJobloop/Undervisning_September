@@ -33,5 +33,8 @@ app.UseHttpsRedirection();
 
 app.MapReviewQueueEndpoints();
 
+// Endepunkter for å legge til nye spørsmål.
+app.MapQuestionEndpoints();
+
 // Run starter serveren og blokkerer helt til appen avsluttes.
 app.Run();
